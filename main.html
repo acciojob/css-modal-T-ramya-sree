@@ -1,108 +1,132 @@
 <!DOCTYPE html>
-
-<html>
-
-<head>
-	<link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-		<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Modal Example</title>
+  <title>IMDb Movie Detail</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      text-align: center;
     }
 
     /* Button */
     #openModal {
+      margin-top: 20px;
       padding: 12px 20px;
       font-size: 16px;
-      background-color: #007BFF;
-      color: white;
+      background-color: #ff9800;
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      color: white;
     }
 
     #openModal:hover {
-      background-color: #0056b3;
+      background-color: #e68900;
+    }
+
+    /* Movie Poster */
+    .moviePic {
+      height: 400px;
+      width: 270px;
+      opacity: 0.9;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    }
+
+    /* Movie Description */
+    .movieDetail {
+      position: relative;
+      top: 20px;
+      width: 60%;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 10px;
     }
 
     /* Modal */
     .modal {
-      display: none; /* hidden by default */
+      display: none;
       position: fixed;
       z-index: 1;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.6);
     }
 
-    /* Modal Content */
     .modal-content {
       background-color: #fff;
+      color: black;
       margin: 10% auto;
-      padding: 0;
       width: 40%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       animation: fadeIn 0.3s ease;
     }
 
-    /* Header */
     .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      background-color: #007BFF;
+      background: #007BFF;
       color: white;
+      padding: 15px;
     }
 
-    /* Close Button */
     .close-modal {
-      cursor: pointer;
       font-size: 20px;
-      font-weight: bold;
+      cursor: pointer;
       background: none;
       border: none;
       color: white;
     }
 
-    /* Body */
     .modal-body {
       padding: 20px;
       font-size: 16px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
+
 </head>
 <body>
 
+  <!-- Button -->
   <button id="openModal">Open Modal</button>
 
+  <!-- Movie Poster -->
+  <img 
+    class="moviePic"
+    src="https://via.placeholder.com/270x400"
+    alt="Movie Poster"
+  >
+
+  <!-- Movie Description -->
+  <p class="movieDetail">
+    In a world where dreams blend with reality, a skilled thief enters the subconscious 
+    of others to steal secrets. Given a chance at redemption, he must perform the impossible—
+    planting an idea instead of stealing one—while confronting his own past.
+  </p>
+
+  <!-- Modal -->
   <div class="modal" id="myModal">
     <div class="modal-content">
-      
+
       <div class="modal-header">
         <h2>Modal Header</h2>
         <button class="close-modal">&times;</button>
@@ -120,17 +144,14 @@
     const openBtn = document.getElementById("openModal");
     const closeBtn = document.querySelector(".close-modal");
 
-    // Open modal
     openBtn.onclick = function() {
       modal.style.display = "block";
     }
 
-    // Close modal (button)
     closeBtn.onclick = function() {
       modal.style.display = "none";
     }
 
-    // Close modal (outside click)
     window.onclick = function(event) {
       if (event.target === modal) {
         modal.style.display = "none";
@@ -139,9 +160,4 @@
   </script>
 
 </body>
-</html>
-</script>
-
-</body>
-
 </html>
